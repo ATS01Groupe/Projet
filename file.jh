@@ -1,0 +1,68 @@
+entity Client {
+	fistname String required,
+    lastname String,
+    cartnumenber String required,
+    telephone String ,
+    email String required
+
+}
+
+entity Duration {
+	datecome LocalDate required,
+    datego LocalDate,
+    duration Double required,
+    type Typeduration required
+
+}
+ enum Typeduration{
+ JOUR,
+ SEMAINE,
+ MOIS,
+ ANNEE
+ }
+  enum Etatromms{
+  DISPONIPLE,
+  OCCUPE,
+  ENTRETIEN
+ }
+  enum Typedroom{
+ VIP,
+ SIMPLE,
+ MOYEN
+ }
+ entity Rooms{
+  romsnumber String required,
+  typeroom Typedroom required,
+  etat Etatromms required
+  }
+entity Badge{
+numberbadge String required ,
+matricule String required
+}
+entity Groupe{
+namegroupe String
+}
+relationship OneToMany {
+  Duration{client(fistname)} to Client{durre(duration)}
+}
+relationship OneToOne{
+Client{room(romsnumber)} to Rooms{client(fistname)}
+
+}
+relationship OneToOne{
+Rooms{badge(numberbadge)} to Badge{rooms(romsnumber)}
+}
+relationship ManyToOne{
+Client{groupe(namegroupe)} to Groupe{client}
+}
+
+
+
+// Set pagination options
+paginate Client with infinite-scroll
+paginate Duration with pager
+
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix

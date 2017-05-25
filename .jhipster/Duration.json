@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "durre"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "datecome",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "datego",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Typeduration",
+            "fieldValues": "JOUR,SEMAINE,MOIS,ANNEE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170524133948",
+    "entityTableName": "duration",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl"
+}

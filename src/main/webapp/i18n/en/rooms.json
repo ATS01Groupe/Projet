@@ -1,0 +1,26 @@
+{
+    "hotManApp": {
+        "rooms" : {
+            "home": {
+                "title": "Rooms",
+                "createLabel": "Create a new Rooms",
+                "createOrEditLabel": "Create or edit a Rooms",
+                "search": "Search for Rooms"
+            },
+            "created": "A new Rooms is created with identifier {{ param }}",
+            "updated": "A Rooms is updated with identifier {{ param }}",
+            "deleted": "A Rooms is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rooms {{ id }}?"
+            },
+            "detail": {
+                "title": "Rooms"
+            },
+            "romsnumber": "Romsnumber",
+            "typeroom": "Typeroom",
+            "etat": "Etat",
+            "badge": "Badge",
+            "client": "Client"
+        }
+    }
+}

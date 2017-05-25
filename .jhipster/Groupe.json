@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "groupe"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "namegroupe",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170524133951",
+    "entityTableName": "groupe",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl"
+}

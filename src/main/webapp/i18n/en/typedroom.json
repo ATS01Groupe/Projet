@@ -1,0 +1,10 @@
+{
+    "hotManApp": {
+        "Typedroom" : {
+            "null": "",
+            "VIP": "VIP",
+            "SIMPLE": "SIMPLE",
+            "MOYEN": "MOYEN"
+        }
+    }
+}

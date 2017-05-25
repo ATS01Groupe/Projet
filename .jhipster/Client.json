@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "room",
+            "otherEntityName": "rooms",
+            "otherEntityField": "romsnumber",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "client(fistname)"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "groupe",
+            "otherEntityName": "groupe",
+            "otherEntityField": "namegroupe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "durre",
+            "otherEntityName": "duration",
+            "otherEntityField": "duration"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fistname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cartnumenber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170524133947",
+    "entityTableName": "client",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl"
+}

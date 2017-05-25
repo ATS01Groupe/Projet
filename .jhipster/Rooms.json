@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "badge",
+            "otherEntityName": "badge",
+            "otherEntityField": "numberbadge",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "rooms(romsnumber)"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "room"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "romsnumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "typeroom",
+            "fieldType": "Typedroom",
+            "fieldValues": "VIP,SIMPLE,MOYEN",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Etatromms",
+            "fieldValues": "DISPONIPLE,OCCUPE,ENTRETIEN",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170524133949",
+    "entityTableName": "rooms",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl"
+}

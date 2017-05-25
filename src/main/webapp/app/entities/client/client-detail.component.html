@@ -1,0 +1,59 @@
+
+<div *ngIf="client">
+    <h2><span jhiTranslate="hotManApp.client.detail.title">Client</span> {{client.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hotManApp.client.fistname">Fistname</span></dt>
+        <dd>
+            <span>{{client.fistname}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.lastname">Lastname</span></dt>
+        <dd>
+            <span>{{client.lastname}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.cartnumenber">Cartnumenber</span></dt>
+        <dd>
+            <span>{{client.cartnumenber}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{client.telephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.email">Email</span></dt>
+        <dd>
+            <span>{{client.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.room">Room</span></dt>
+        <dd>
+            <div *ngIf="client.room">
+                <a [routerLink]="['/rooms', client.room?.id]">{{client.room?.romsnumber}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.groupe">Groupe</span></dt>
+        <dd>
+            <div *ngIf="client.groupe">
+                <a [routerLink]="['/groupe', client.groupe?.id]">{{client.groupe?.namegroupe}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.client.durre">Durre</span></dt>
+        <dd>
+            <div *ngIf="client.durre">
+                <a [routerLink]="['/duration', client.durre?.id]">{{client.durre?.duration}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'client/'+ client.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

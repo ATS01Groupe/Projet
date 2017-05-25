@@ -1,0 +1,94 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myClientLabel" jhiTranslate="hotManApp.client.home.createOrEditLabel">Create or edit a Client</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!client.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="client.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.client.fistname" for="field_fistname">Fistname</label>
+            <input type="text" class="form-control" name="fistname" id="field_fistname"
+                [(ngModel)]="client.fistname"
+            required />
+            <div [hidden]="!(editForm.controls.fistname?.dirty && editForm.controls.fistname?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fistname?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.client.lastname" for="field_lastname">Lastname</label>
+            <input type="text" class="form-control" name="lastname" id="field_lastname"
+                [(ngModel)]="client.lastname"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.client.cartnumenber" for="field_cartnumenber">Cartnumenber</label>
+            <input type="text" class="form-control" name="cartnumenber" id="field_cartnumenber"
+                [(ngModel)]="client.cartnumenber"
+            required />
+            <div [hidden]="!(editForm.controls.cartnumenber?.dirty && editForm.controls.cartnumenber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cartnumenber?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.client.telephone" for="field_telephone">Telephone</label>
+            <input type="text" class="form-control" name="telephone" id="field_telephone"
+                [(ngModel)]="client.telephone"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.client.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="client.email"
+            required />
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="hotManApp.client.room" for="field_room">Room</label>
+            <select class="form-control" id="field_room" name="room" [(ngModel)]="client.room">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="roomsOption.id === client.room?.id ? client.room : roomsOption" *ngFor="let roomsOption of rooms; trackBy: trackRoomsById">{{roomsOption.romsnumber}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="hotManApp.client.groupe" for="field_groupe">Groupe</label>
+            <select class="form-control" id="field_groupe" name="groupe" [(ngModel)]="client.groupe" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="groupeOption.id === client.groupe?.id ? client.groupe : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.namegroupe}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="hotManApp.client.durre" for="field_durre">Durre</label>
+            <select class="form-control" id="field_durre" name="durre" [(ngModel)]="client.durre" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="durationOption.id === client.durre?.id ? client.durre : durationOption" *ngFor="let durationOption of durations; trackBy: trackDurationById">{{durationOption.duration}} {{durationOption.type}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

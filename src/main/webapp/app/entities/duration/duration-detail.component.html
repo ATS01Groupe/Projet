@@ -1,0 +1,37 @@
+
+<div *ngIf="duration">
+    <h2><span jhiTranslate="hotManApp.duration.detail.title">Duration</span> {{duration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hotManApp.duration.datecome">Datecome</span></dt>
+        <dd>
+            <span>{{duration.datecome | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.duration.datego">Datego</span></dt>
+        <dd>
+            <span>{{duration.datego | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.duration.duration">Duration</span></dt>
+        <dd>
+            <span>{{duration.duration}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.duration.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'hotManApp.Typeduration.' + duration.type}}">{{duration.type}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'duration/'+ duration.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

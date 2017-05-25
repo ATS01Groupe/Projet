@@ -1,0 +1,72 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRoomsLabel" jhiTranslate="hotManApp.rooms.home.createOrEditLabel">Create or edit a Rooms</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!rooms.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="rooms.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.rooms.romsnumber" for="field_romsnumber">Romsnumber</label>
+            <input type="text" class="form-control" name="romsnumber" id="field_romsnumber"
+                [(ngModel)]="rooms.romsnumber"
+            required />
+            <div [hidden]="!(editForm.controls.romsnumber?.dirty && editForm.controls.romsnumber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.romsnumber?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.rooms.typeroom" for="field_typeroom">Typeroom</label>
+            <select class="form-control" name="typeroom" [(ngModel)]="rooms.typeroom" id="field_typeroom"  required>
+                <option value="VIP" jhiTranslate="hotManApp.Typedroom.VIP">VIP</option>
+                <option value="SIMPLE" jhiTranslate="hotManApp.Typedroom.SIMPLE">SIMPLE</option>
+                <option value="MOYEN" jhiTranslate="hotManApp.Typedroom.MOYEN">MOYEN</option>
+            </select>
+            <div [hidden]="!(editForm.controls.typeroom?.dirty && editForm.controls.typeroom?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.typeroom?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.rooms.etat" for="field_etat">Etat</label>
+            <select class="form-control" name="etat" [(ngModel)]="rooms.etat" id="field_etat"  required>
+                <option value="DISPONIPLE" jhiTranslate="hotManApp.Etatromms.DISPONIPLE">DISPONIPLE</option>
+                <option value="OCCUPE" jhiTranslate="hotManApp.Etatromms.OCCUPE">OCCUPE</option>
+                <option value="ENTRETIEN" jhiTranslate="hotManApp.Etatromms.ENTRETIEN">ENTRETIEN</option>
+            </select>
+            <div [hidden]="!(editForm.controls.etat?.dirty && editForm.controls.etat?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.etat?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="hotManApp.rooms.badge" for="field_badge">Badge</label>
+            <select class="form-control" id="field_badge" name="badge" [(ngModel)]="rooms.badge">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="badgeOption.id === rooms.badge?.id ? rooms.badge : badgeOption" *ngFor="let badgeOption of badges; trackBy: trackBadgeById">{{badgeOption.numberbadge}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,39 @@
+
+<div *ngIf="rooms">
+    <h2><span jhiTranslate="hotManApp.rooms.detail.title">Rooms</span> {{rooms.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="hotManApp.rooms.romsnumber">Romsnumber</span></dt>
+        <dd>
+            <span>{{rooms.romsnumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.rooms.typeroom">Typeroom</span></dt>
+        <dd>
+            <span jhiTranslate="{{'hotManApp.Typedroom.' + rooms.typeroom}}">{{rooms.typeroom}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.rooms.etat">Etat</span></dt>
+        <dd>
+            <span jhiTranslate="{{'hotManApp.Etatromms.' + rooms.etat}}">{{rooms.etat}}</span>
+        </dd>
+        <dt><span jhiTranslate="hotManApp.rooms.badge">Badge</span></dt>
+        <dd>
+            <div *ngIf="rooms.badge">
+                <a [routerLink]="['/badge', rooms.badge?.id]">{{rooms.badge?.numberbadge}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rooms/'+ rooms.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,82 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDurationLabel" jhiTranslate="hotManApp.duration.home.createOrEditLabel">Create or edit a Duration</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!duration.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="duration.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.duration.datecome" for="field_datecome">Datecome</label>
+            <div class="input-group">
+                <input id="field_datecome" type="text" class="form-control" name="datecome" ngbDatepicker  #datecomeDp="ngbDatepicker" [(ngModel)]="duration.datecome"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="datecomeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.datecome?.dirty && editForm.controls.datecome?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.datecome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.duration.datego" for="field_datego">Datego</label>
+            <div class="input-group">
+                <input id="field_datego" type="text" class="form-control" name="datego" ngbDatepicker  #dategoDp="ngbDatepicker" [(ngModel)]="duration.datego"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="dategoDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.duration.duration" for="field_duration">Duration</label>
+            <input type="number" class="form-control" name="duration" id="field_duration"
+                [(ngModel)]="duration.duration"
+            required />
+            <div [hidden]="!(editForm.controls.duration?.dirty && editForm.controls.duration?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.duration?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.duration?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hotManApp.duration.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="duration.type" id="field_type"  required>
+                <option value="JOUR" jhiTranslate="hotManApp.Typeduration.JOUR">JOUR</option>
+                <option value="SEMAINE" jhiTranslate="hotManApp.Typeduration.SEMAINE">SEMAINE</option>
+                <option value="MOIS" jhiTranslate="hotManApp.Typeduration.MOIS">MOIS</option>
+                <option value="ANNEE" jhiTranslate="hotManApp.Typeduration.ANNEE">ANNEE</option>
+            </select>
+            <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
