@@ -6,12 +6,16 @@
             "home": "Accueil",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entités",
+                "main": "Opérations",
                 "client": "Client",
                 "duration": "Duration",
                 "rooms": "Rooms",
                 "badge": "Badge",
                 "groupe": "Groupe",
+                "personelHotpersonel": "Personel",
+                "fonctionHotpersonel": "Fonction",
+                "departmentHotpersonel": "Department",
+                "horrairesHotpersonel": "Horraires",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -132,5 +136,5 @@
         "emailexists": "Email déjà utilisé !",
         "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'ID !"
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "Tous droits reservés ats-groupe@2017"
 }

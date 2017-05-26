@@ -12,6 +12,10 @@
                 "rooms": "Rooms",
                 "badge": "Badge",
                 "groupe": "Groupe",
+                "personelHotpersonel": "Personel",
+                "fonctionHotpersonel": "Fonction",
+                "departmentHotpersonel": "Department",
+                "horrairesHotpersonel": "Horraires",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

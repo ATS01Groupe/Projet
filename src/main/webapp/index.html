@@ -16,6 +16,9 @@
     <![endif]-->
     <jhi-main></jhi-main>
     <script>
+        $('.carousel').carousel({
+            interval: 2000
+        })
         // load shim for IE
         if (window.navigator.userAgent.indexOf('Trident/') > 0) {
             var script = document.createElement('script');

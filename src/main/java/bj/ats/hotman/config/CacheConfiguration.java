@@ -47,6 +47,12 @@ public class CacheConfiguration {
             cm.createCache(bj.ats.hotman.domain.Badge.class.getName(), jcacheConfiguration);
             cm.createCache(bj.ats.hotman.domain.Groupe.class.getName(), jcacheConfiguration);
             cm.createCache(bj.ats.hotman.domain.Groupe.class.getName() + ".clients", jcacheConfiguration);
+            cm.createCache(bj.ats.hotman.domain.Personel.class.getName(), jcacheConfiguration);
+            cm.createCache(bj.ats.hotman.domain.Personel.class.getName() + ".personels", jcacheConfiguration);
+            cm.createCache(bj.ats.hotman.domain.Fonction.class.getName(), jcacheConfiguration);
+            cm.createCache(bj.ats.hotman.domain.Department.class.getName(), jcacheConfiguration);
+            cm.createCache(bj.ats.hotman.domain.Horraires.class.getName(), jcacheConfiguration);
+            cm.createCache(bj.ats.hotman.domain.Personel.class.getName() + ".horraires", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -10,8 +10,15 @@
     <include file="classpath:config/liquibase/changelog/20170524133949_added_entity_Rooms.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20170524133950_added_entity_Badge.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20170524133951_added_entity_Groupe.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131254_added_entity_Personel.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131255_added_entity_Fonction.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131256_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131257_added_entity_Horraires.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20170524133947_added_entity_constraints_Client.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20170524133949_added_entity_constraints_Rooms.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131254_added_entity_constraints_Personel.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131257_added_entity_constraints_Horraires.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170525131255_added_entity_constraints_Fonction.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -79,7 +79,7 @@
             <label jhiTranslate="hotManApp.client.durre" for="field_durre">Durre</label>
             <select class="form-control" id="field_durre" name="durre" [(ngModel)]="client.durre" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="durationOption.id === client.durre?.id ? client.durre : durationOption" *ngFor="let durationOption of durations; trackBy: trackDurationById">{{durationOption.duration}} {{durationOption.type}}</option>
+                <option [ngValue]="durationOption.id === client.durre?.id ? client.durre : durationOption" *ngFor="let durationOption of durations; trackBy: trackDurationById">{{durationOption.duration}}</option>
             </select>
         </div>
     </div>
